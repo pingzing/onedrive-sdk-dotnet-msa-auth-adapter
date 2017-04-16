@@ -43,7 +43,7 @@ namespace Microsoft.OneDrive.Sdk.Authentication
                     StringComparison.OrdinalIgnoreCase);
 
             this.callbackUri = callbackUri;
-            WebViewSource = requestUri;
+            this.DialogWebView.Navigate(requestUri);
             
             if (!isSignOutRequest)
             {
