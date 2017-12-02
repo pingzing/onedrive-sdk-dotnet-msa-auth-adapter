@@ -168,16 +168,16 @@
     <EmbeddedResource Include="Properties\Microsoft.OneDrive.Sdk.Authentication.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OneDrive.Sdk.Authentication.WinStore\OneDrive.Sdk.Authentication.WinStore.csproj">
-      <Project>{a8c54259-542c-40ac-aeb6-eefc3aa79859}</Project>
-      <Name>OneDrive.Sdk.Authentication.WinStore</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Web\IotFriendlyWebDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OneDrive.Sdk.Authentication.WinStore\OneDrive.Sdk.Authentication.WinStore.csproj">
+      <Project>{6a01fa6a-6e20-445f-8540-442a4dd1abb3}</Project>
+      <Name>OneDrive.Sdk.Authentication.WinStore</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
