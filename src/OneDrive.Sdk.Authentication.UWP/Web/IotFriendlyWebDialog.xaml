@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     d:DesignWidth="600"
     d:DesignHeight="600"
-    
+        
     Closing="ContentDialog_Closing">
 
     <ContentDialog.Resources>
@@ -227,11 +227,8 @@
        
     <Grid>
         <WebView x:Name="DialogWebView"
-                 Height="{StaticResource ContentDialogMaxHeight}"         
-                 Width="{StaticResource ContentDialogMaxWidth}"
+                 Width="350"
                  NavigationStarting="DialogWebView_NavigationStarting"
-                 NavigationCompleted="DialogWebView_NavigationCompleted"                 
-                 Source="{x:Bind WebViewSource, Mode=TwoWay}"
-                 />
+                 NavigationCompleted="DialogWebView_NavigationCompleted"/>
     </Grid>
 </ContentDialog>

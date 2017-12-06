@@ -17,25 +17,18 @@ namespace Microsoft.OneDrive.Sdk.Authentication
         private Uri callbackUri;
         private TaskCompletionSource<bool> dialogTaskComplete = new TaskCompletionSource<bool>();
 
-        private Uri webViewSource;
-        public Uri WebViewSource
-        {
-            get { return webViewSource; }
-            internal set
-            {
-                if (webViewSource != value)
-                {
-                    webViewSource = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
         public IotFriendlyWebDialog()
         {
             this.InitializeComponent();
-        }   
-        
+            this.DialogWebView.Height = Window.Current.Bounds.Height - 115;
+            Window.Current.SizeChanged += Current_SizeChanged;
+        }
+
+        private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            this.DialogWebView.Height = e.Size.Height - 115;            
+        }
+
         public async Task<IDictionary<string, string>> GetAuthenticationResponseValue(Uri requestUri, Uri callbackUri)
         {
             bool isSignOutRequest = 
@@ -59,7 +52,8 @@ namespace Microsoft.OneDrive.Sdk.Authentication
 
         private void ContentDialog_Closing(ContentDialog sender, ContentDialogClosingEventArgs args)
         {
-            this.dialogTaskComplete.TrySetResult(true);
+            Window.Current.SizeChanged -= Current_SizeChanged;
+            this.dialogTaskComplete.TrySetResult(true);            
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
